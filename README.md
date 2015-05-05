@@ -4,6 +4,8 @@ Overview
 Out of personal curiosity and interest I am writing a solver for the
 incompressible Navier-Stokes equations on a fully
 periodic domain. This repository contains my current progress.
+This project is experimental and in "research" mode. I don't know
+if it will work, and the code is in a very early stage.
 
 
 Details

@@ -4,7 +4,7 @@ include("tocsv.jl");
 timesteps=1000;
 quadlen=20;
 dt=0.0001;
-order=8;
+order=4;
 p=filter_dependent_modes(order);
 len=length(p);
 u=rand(Complex128,(len,));

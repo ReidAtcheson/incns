@@ -115,17 +115,17 @@ function ns_eval(RTR,u::Array{Complex128},V,GV,W)
     gg=zeros(u);
     #Compute grad-grad term.
     for i=1:dim
-	for j=1:dim
-	    gg[:]=gg[:]+(GV[i,j]')*(W*(GV[i,j]*u));
-	end
+      for j=1:dim
+          gg[:]=gg[:]+(GV[i,j]')*(W*(GV[i,j]*u));
+      end
     end
 
     #Compute convection term.
     co=zeros(u);
     for i=1:dim
-	for j = 1 : dim
-	    co[:]=co[:]+V[j]'*(W*((V[i]*u).*(GV[j,i]*u)))
-	end
+      for j = 1 : dim
+        co[:]=co[:]+V[j]'*(W*((V[i]*u).*(GV[i,j]*u)))
+      end
     end
 
 
