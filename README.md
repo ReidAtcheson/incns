@@ -12,8 +12,8 @@ I start with a standard tensor-product Fourier basis
 for each component of the fluid velocity, and I furthermore
 combine this with a Galerkin approximation approach. Ideally
 this should yield an exponential convergence rate and therefore
-minimize memory requirements to simulate fine scale behavior.
-Handling pressure is tricky, and therefore to make
+minimize memory requirements to simulate fine scale behavior;
+however, handling pressure is tricky. Therefore to make
 this a little easier I simply take the curl of the tensor-product
 basis, this forces the basis to be divergence-free and eliminates
 the pressure term. The curl-tensor-product basis yields a set
