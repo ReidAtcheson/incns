@@ -108,14 +108,19 @@ spy(M[p,p]);
 now computing the RRQR factorization of this matrix can proceed by performing
 very small RRQR of its blocks in parallel, a significantly more scalable operation
 than treating the large sparse matrix as if it were dense. I have yet to write the code
-to perform that, but it is my next step. This removes the bottleneck of a massive
+to perform that, but it is a next step. This removes the bottleneck of a massive
 dense linear algebra in producing a divergence-free basis that automagically
 eliminates the pressure term from the Navier-Stokes equation, but computing
 the mass matrix at high orders also has proven to be challenging and so I will
 need to address this as well. Early profiling suggests that the function
 which accepts a linear index and translates it into 3D indexing is a 
-huge bottleneck for this.
-
+huge bottleneck for this. One way to remove this is to attempt to
+avoid looping over indices which will produce a zero anyways, and since
+the mass-matrix is sparse this is the vast majority of the indices. 
+I will attempt to address both the programming challenge of doing the
+block-wise RRQR factorizations as well as improving the efficiency
+of the mass matrix computation, but as I write this I am currently in
+Konya, Turkey and busy with other things as well.
 
 
 
