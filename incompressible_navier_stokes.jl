@@ -1,4 +1,4 @@
-  using Devectorize
+using Devectorize
 include("incompressible_basis.jl");
 
   function ns_gradgrad(
@@ -113,6 +113,7 @@ function ns_eval(RTR,u::Array{Complex128},V,GV,W)
     dim=3;
     n=length(u);
     gg=zeros(u);
+    co=zeros(u);
     #Compute grad-grad term.
     for i=1:dim
       for j=1:dim
@@ -121,13 +122,11 @@ function ns_eval(RTR,u::Array{Complex128},V,GV,W)
     end
 
     #Compute convection term.
-    co=zeros(u);
     for i=1:dim
-      for j = 1 : dim
-        co[:]=co[:]+V[j]'*(W*((V[i]*u).*(GV[i,j]*u)))
+      for j = 1:dim
+        co[:]=co[:]+V[i]'*(W*((V[j]*u).*(GV[i,j]*u)))
       end
     end
-
 
     return RTR\(-gg-co);
 end

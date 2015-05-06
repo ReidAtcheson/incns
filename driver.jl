@@ -3,8 +3,8 @@ include("tocsv.jl");
 
 timesteps=1000;
 quadlen=20;
-dt=0.0001;
-order=4;
+dt=0.001;
+order=5;
 p=filter_dependent_modes(order);
 len=length(p);
 u=rand(Complex128,(len,));
